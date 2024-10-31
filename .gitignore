@@ -150,3 +150,6 @@ $RECYCLE.BIN/
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+dummy.json
+dummy.ts

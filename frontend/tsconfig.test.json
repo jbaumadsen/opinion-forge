@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "jsx": "react-jsx",
+    // These might help with testing environment
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "types": ["jest", "node", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -4,16 +4,14 @@ import { useAuth } from '../hooks/useAuth';
 export const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { login, error, isLoading } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     try {
       await login(username, password);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      console.error('login failed', err);
     }
   };
 
@@ -39,8 +37,14 @@ export const Login: React.FC = () => {
           required
         />
       </div>
-      {error && <div className="error">{error}</div>}
-      <button type="submit">Log In</button>
+      {error && (
+        <div className="error text-red-600" role="alert">
+          {error}
+        </div>
+      )}
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? 'Logging in...' : 'Log In'}
+      </button>
     </form>
   );
 };

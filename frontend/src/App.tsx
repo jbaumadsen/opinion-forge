@@ -1,10 +1,10 @@
 import React from 'react';
 import { Login } from './components/Login';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/Auth/AuthProvider';
 import { useAuth } from './hooks/useAuth';
 
 const AppContent = () => {
-  const { isLoggedIn, username, logout } = useAuth();
+  const { isLoggedIn, user, logout } = useAuth();
   return (
     <div className="App">
       <header className="App-header">
@@ -13,7 +13,7 @@ const AppContent = () => {
       <main>
         {isLoggedIn ? (
           <div>
-            <h2>Welcome, {username}!</h2>
+            <h2>Welcome, {user?.username}!</h2>
             <p>You are now logged in.</p>
             <button onClick={logout}>Log out</button>
             {/* TODO: Add more components for the logged-in state */}
