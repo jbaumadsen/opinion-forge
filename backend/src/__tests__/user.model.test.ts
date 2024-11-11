@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { User } from '../models/user.model';
 import dotenv from 'dotenv';
 import { MongoMemoryServer } from 'mongodb-memory-server';
-
+import '@jest/globals';
 dotenv.config();
 
 describe('User Model Test', () => {

@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2023"],
+    "target": "ES2022", 
+    "lib": ["es2023"],
+    "types": ["@types/babel__core", "@types/babel__generator", "@types/babel__template", "@types/estree"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "composite": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
 
     /* Linting */
     "strict": true,

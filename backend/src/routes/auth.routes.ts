@@ -1,10 +1,10 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/user.model';
 import mongoose from 'mongoose';
 const router = express.Router();
 
-router.post('/register', async (req: Request, res: Response) => {
+router.post('/register', async (req: Request, res: Response): Promise<object | void> => {
   try {
     const { username, email, password } = req.body;
     const user = new User({ username, email, password });
@@ -21,7 +21,7 @@ router.post('/register', async (req: Request, res: Response) => {
   }
 });
 
-router.post('/login', async (req: Request, res: Response) => {
+router.post('/login', async (req: Request, res: Response): Promise<object | void> => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });

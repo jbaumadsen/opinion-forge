@@ -1,27 +1,21 @@
 {
-  // "files": [],
-  // "references": [
-  //   { "path": "./tsconfig.app.json" },
-  //   { "path": "./tsconfig.node.json" }
-  // ],
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "types": ["@types/babel__core", "@types/babel__generator", "@types/babel__template", "@types/estree"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "strict": true,
-    "types": ["jest", "node", "@testing-library/jest-dom"],
-    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "noUnusedLocals": false,
     "composite": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

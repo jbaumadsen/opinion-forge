@@ -1,0 +1,21 @@
+{
+  "name": "opinion-forge",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm ci && cd frontend && npm ci && cd ../backend && npm ci",
+    "audit-fix": "npm audit fix && cd frontend && npm audit fix && cd ../backend && npm audit fix",
+    "build": "cd frontend && npm run build && cd ../backend && npm run build",
+    "build-frontend": "cd frontend && npm run build",
+    "build-backend": "cd backend && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "test": "npm run test-frontend && npm run test-backend",
+    "test-frontend": "cd frontend && npm test",
+    "test-backend": "cd backend && npm test"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.3",
+    "concurrently": "^8.2.2"
+  }
+}

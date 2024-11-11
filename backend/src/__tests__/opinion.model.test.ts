@@ -3,6 +3,7 @@ import { Opinion, IOpinion } from '../models/opinion.model';
 import dotenv from 'dotenv';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 dotenv.config();
+import '@jest/globals';
 
 describe('Opinion Model Test', () => {
   let mongoServer: MongoMemoryServer;

@@ -5,15 +5,16 @@ interface AuthRequest extends Request {
   userId?: string;
 }
 
-export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => {
+export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction): void => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
 
   if (!token) {
-    return res.status(401).json({ message: 'No token, authorization denied' });
+    res.status(401).json({ message: 'No token, authorization denied' });
+    return;
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret') as { userId: string };
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret') as jwt.JwtPayload;
     req.userId = decoded.userId;
     next();
   } catch (error) {

@@ -30,6 +30,17 @@ const mockUser = {
   },
 };
 
+declare global {
+  interface Window {
+    ENV: {
+      PROD: boolean;
+    };
+  }
+}
+
+window.ENV = {
+  PROD: false,
+};
 describe('AuthProvider', () => {
   beforeEach(() => {
     fetchMock.resetMocks();

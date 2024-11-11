@@ -2,8 +2,9 @@ import dotenv from 'dotenv';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import request from 'supertest';
 import mongoose from 'mongoose';
-import { app } from '../server';
+import app from '../server';
 import { User } from '../models/user.model';
+// import '@jest/globals';
 
 dotenv.config();
 
